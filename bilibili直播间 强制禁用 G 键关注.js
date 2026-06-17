@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bilibili直播间 强制禁用 G 键关注
 // @namespace    anti_g_forced_follow
-// @version      0.7.2
+// @version      0.7.3
 // @description  强制禁用G键关注直播间
 // @author       Mifan-T
 // @match        *://*.live.bilibili.com/*
@@ -38,6 +38,8 @@
   const mo = new MutationObserver(()=>{ // 创建 MutationObserver 实例，所以每当DOM发生变化，都会重装监听器
     window.addEventListener('keyup', blockG, true);
     document.addEventListener('keyup', blockG, true);
+    // debug用 - 输出重装日志
+    // console.log('已重装监听器');
   });
   // 监听整个子树中所有子节点增删，并执行mo实例（有点暴力说实话）
   mo.observe(document.documentElement || document.body, {childList:true, subtree:true});
