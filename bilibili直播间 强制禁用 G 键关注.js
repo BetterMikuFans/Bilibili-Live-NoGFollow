@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bilibili直播间 强制禁用 G 键关注
 // @namespace    anti_g_forced_follow
-// @version      0.7.0
+// @version      0.7.1
 // @description  强制禁用G键关注直播间
 // @author       Mifan-T
 // @match        *://*.live.bilibili.com/*
@@ -24,6 +24,8 @@
       if(k === 'g' || code === 103 || code === 71){ // 如果按键为 'g' 或 'g'/'G' 的ASCII码
         e.preventDefault(); // 直接阻止对象'e'的行为
         e.stopImmediatePropagation(); // 阻止后续同一事件的其他监听器执行（太稳健了）
+        // debug用 - 输出拦截成功日志
+        // console.log('G 键拦截成功');
       }
     }catch(err){console.error(err);} // 捕获异常并输出到控制台，不中断脚本
   }
