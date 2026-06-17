@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         bilibili直播间 强制禁用 G 键关注
 // @namespace    anti_g_forced_follow
-// @version      0.7.1
+// @version      0.7.2
 // @description  强制禁用G键关注直播间
 // @author       Mifan-T
 // @match        *://*.live.bilibili.com/*
 // @icon         https://www.bilibili.com/favicon.ico
-// @grant        none
+// @grant        GM_addStyle
 // @license      GPL-3.0
 // ==/UserScript==
 
