@@ -1,10 +1,9 @@
 // ==UserScript==
 // @name         bilibili直播间 强制禁用 G 键关注
 // @namespace    anti_g_forced_follow
-// @version      0.6
-// @description  try to take down follow-key
-// @description:zh-CN 强制禁用G键关注直播间
-// @author       None
+// @version      0.7.0
+// @description  强制禁用G键关注直播间
+// @author       Mifan-T
 // @match        *://*.live.bilibili.com/*
 // @icon         https://www.bilibili.com/favicon.ico
 // @grant        none
@@ -22,18 +21,18 @@
       const tag = (document.activeElement && document.activeElement.tagName) || ''; // 直接获取焦点tagName（甚至判空提高健壮性）
       const isEditable = tag === 'INPUT' || tag === 'TEXTAREA'; // 判断是否处于可编辑区域
       if(isEditable) return; // 如果在编辑区域，就return
-      if(k === 'g' || code === 103 || code === 71){ // 如果按键为 'g' 或 'g'/'G' 的ASCII码 
+      if(k === 'g' || code === 103 || code === 71){ // 如果按键为 'g' 或 'g'/'G' 的ASCII码
         e.preventDefault(); // 直接阻止对象'e'的行为
         e.stopImmediatePropagation(); // 阻止后续同一事件的其他监听器执行（太稳健了）
       }
     }catch(err){console.error(err);} // 捕获异常并输出到控制台，不中断脚本
   }
 
-  // 捕获阶段安装监听器，true 表示捕获阶段，早于目标阶段和冒泡阶段，确保抢先拦截（It just work）
+  // 捕获阶段安装监听器，true 表示捕获阶段，早于目标阶段和冒泡阶段，确保抢先拦截（同时监听window只是为了暴力拦截）
   window.addEventListener('keyup', blockG, true);
   document.addEventListener('keyup', blockG, true);
 
-  // 监控 DOM 变化并重装监听器（防止页面后续动态移除或覆盖监听器）（It just work）
+  // 监控 DOM 变化并重装监听器（防止页面后续动态移除或覆盖监听器）（增强可靠性）
   const mo = new MutationObserver(()=>{ // 创建 MutationObserver 实例，所以每当DOM发生变化，都会重装监听器
     window.addEventListener('keyup', blockG, true);
     document.addEventListener('keyup', blockG, true);
@@ -60,4 +59,17 @@
   };
   */
 
+  // 次要逻辑：隐藏“G”元素
+  let css = `
+  .follow-key-prompt{display: none!important;}
+  #popup-shortcut-box{display: none!important;}
+  `
+  // 调用 GM_addStyle，如果不支持 GM_addStyle ，则使用备用方案
+  if (typeof GM_addStyle !== "undefined") {
+    GM_addStyle(css);
+  } else {
+    let styleNode = document.createElement("style");
+    styleNode.appendChild(document.createTextNode(css));
+    (document.querySelector("head") || document.documentElement).appendChild(styleNode);
+  }
 })();
