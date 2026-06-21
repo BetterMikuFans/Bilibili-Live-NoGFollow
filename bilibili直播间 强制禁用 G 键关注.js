@@ -1,12 +1,14 @@
 // ==UserScript==
 // @name         bilibili直播间 强制禁用 G 键关注
 // @namespace    anti_G_forced_follow
-// @version      1.0.1
+// @version      1.0.2
 // @description  强制禁用G键关注直播间
 // @author       Mifan-T
+// @homepageURL  https://github.com/BetterMikuFans/Bilibili-Live-NoGFollow
 // @match        *://*.live.bilibili.com/*
 // @icon         https://www.bilibili.com/favicon.ico
 // @grant        GM_addStyle
+// @supportURL   https://github.com/BetterMikuFans/Bilibili-Live-NoGFollow/issues
 // @license      GPL-3.0
 // ==/UserScript==
 
