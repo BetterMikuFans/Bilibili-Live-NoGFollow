@@ -42,7 +42,7 @@
 
 -------------------------------------------------------------
 
-**严肃提示： AI生成的原始代码中夹带了不少无用代码，还有错误的、遗漏的逻辑，不能完全信任。虽然 Copilot 已经算是不错的了，但(我认为)人工审查是不能免除的，正如 Copilot [官方文档](https://docs.github.com/en/enterprise-cloud@latest/copilot/get-started/best-practices#understand-copilots-strengths-and-weaknesses)中描述的：**
+**严肃提示： AI生成的原始代码中夹带了不少无用代码，还有错误的、遗漏的逻辑，不能完全信任。虽然 Copilot 已经算是不错的了，但(我认为)人工审查是不能免除的，正如 [Copilot 官方文档](https://docs.github.com/en/enterprise-cloud@latest/copilot/get-started/best-practices#understand-copilots-strengths-and-weaknesses) 中描述的：**
 
 > **Copilot 的设计目的并非：**  
 >
