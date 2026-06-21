@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bilibili直播间 强制禁用 G 键关注
 // @namespace    anti_G_forced_follow
-// @version      1.0.0
+// @version      1.0.1
 // @description  强制禁用G键关注直播间
 // @author       Mifan-T
 // @match        *://*.live.bilibili.com/*
@@ -13,6 +13,7 @@
 (function () {
   'use strict';
 
+  // 主逻辑：定义监听器函数，并执行拦截
   // 这里用的参数 e 是 KeyboardEvent 对象，包含键盘事件的信息
   function blockG(e) {
     try {
@@ -50,12 +51,12 @@
 
   // =========================== [防御性编程部分] ===========================
   // 监控 DOM 变化并重装监听器（防止页面后续动态移除或覆盖监听器）（增强可靠性）
-  let DOMCount = 0; // DOM计数
-  const DOMMax = 300; // 设定DOM最大上限
-  let lastLodeTime = Date.now(); // 储存上次安装监听器的时间（ms）
+  const DOMMax = 300; // 设定 DOM 最大上限
   const relodeMaxTime = 30000; // 设定最大重载时间（ms）
+  let DOMCount = 0; // DOM计数
+  let lastLodeTime = Date.now(); // 储存上次安装监听器的时间（ms）
 
-  // 创建 MutationObserver 实例，所以每当DOM发生变化，都会判断是否重装监听器
+  // 创建 MutationObserver 实例，每当 DOM 发生变化，都会判断是否重装监听器
   const mo = new MutationObserver(() => {
     DOMCount++;
 
@@ -97,7 +98,7 @@
   */
   // =========================== [防御性编程结束] ===========================
 
-  // 次要逻辑：隐藏“G”元素
+  // 次要逻辑：隐藏“G”相关元素
   //参考&鸣谢：https://greasyfork.org/zh-CN/scripts/474444-bilibili-20-21%E5%B9%B4%E6%97%A7%E7%89%88
   let css = `
   .follow-key-prompt {display: none !important;}
