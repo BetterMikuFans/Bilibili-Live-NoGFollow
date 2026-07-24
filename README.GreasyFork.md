@@ -18,12 +18,8 @@
 
 > 失效概率：低
 
-油叉的反馈功能不适合用做正式的问题报告，所以请仅当做交流区使用
-
-遇到正式的问题建议去 [Github页面](https://github.com/BetterMikuFans/Bilibili-Live-NoGFollow/issues) 发布issue，这样我才能尽快解决问题
-
 拦截 'G' 快捷键的功能健壮性很强，失效概率较低，但隐藏CSS元素的功能比较容易失效  
-如有发现还欢迎提交issue
+如有发现还欢迎提交 [issue](https://github.com/BetterMikuFans/Bilibili-Live-NoGFollow/issues)
 
 ### 功能开发计划
 
@@ -32,7 +28,11 @@
 - [ ] ~~增加禁用严格等级配置~~（2.0重构版已无必要）
 - [x] 开发激进模式
 
-有新的功能建议欢迎提issue哦(。・∀・)ノ
+有新的功能建议欢迎提 [issue](https://github.com/BetterMikuFans/Bilibili-Live-NoGFollow/issues) 哦(。・∀・)ノ
+
+## 📜 协议&许可证
+
+> 本项目所有**代码**采用 GPL-3.0 协议开源在 [Github](https://github.com/BetterMikuFans/Bilibili-Live-NoGFollow) 上
 
 ## 参考和鸣谢
 
